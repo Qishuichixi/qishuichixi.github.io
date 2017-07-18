@@ -200,7 +200,8 @@
 <p><a href="https://github.com/orhanobut/logger" target="_blank" rel="external">https://github.com/orhanobut/logger</a></p>
 <ol>
 <li>添加<br> compile ‘com.orhanobut:logger:2.1.1’</li>
-<li><p>初始化在appaction或者baseActivity中<br> Logger.addLogAdapter(new AndroidLogAdapter());<br>重写isLoggable可以关闭调试<br> Logger.addLogAdapter(new AndroidLogAdapter() {<br> @Override public boolean isLoggable(int priority, String tag) {<br> return BuildConfig.DEBUG;<br> }<br> });</p>
+<li><p>初始化在appaction或者baseActivity中<br> Logger.addLogAdapter(new AndroidLogAdapter());<br>重写isLoggable可以关闭调试</p>
+<p> Logger.addLogAdapter(new AndroidLogAdapter() {<br> @Override public boolean isLoggable(int priority, String tag) {<br> return BuildConfig.DEBUG;<br> }<br> });</p>
 <p> Logger.d(“hello”);<br> Logger.d(MAP);<br> Logger.d(SET);<br> Logger.d(LIST);<br> Logger.d(ARRAY);<br> Logger.json(JSON_CONTENT);<br> Logger.xml(XML_CONTENT);</p>
 </li>
 </ol>
@@ -214,8 +215,8 @@
 </blockquote>
 <p><a href="https://github.com/yangfuhai/ASimpleCache" target="_blank" rel="external">https://github.com/yangfuhai/ASimpleCache</a></p>
 <pre><code>使用  ACache mCache = ACache.get(this);
-</code></pre><p><img src="&quot;http://ot4o7dg77.bkt.clouddn.com/Acache.png&quot;" alt="" title="Acache"></p>
-<p><img src="&quot;http://ot4o7dg77.bkt.clouddn.com/Acache2.png&quot;" alt="" title="Acache"></p>
+</code></pre><p><img src="&quot;http://ot4o7dg77.bkt.clouddn.com/Acache.png&quot;" alt=""></p>
+<p><img src="&quot;http://ot4o7dg77.bkt.clouddn.com/Acache2.png&quot;" alt=""></p>
 <blockquote>
 <p>2017年7月18日13:02:25 更新</p>
 </blockquote>
@@ -930,14 +931,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">7月</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
@@ -947,6 +940,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">七月</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">bat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">7月</a>
               </li>
              
               <li class="article-tag-list-item">
