@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="//chixi.online">
   <title>github优秀开源项目总结使用 | QiShui</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、logger  https://github.com/orhanobut/logger  添加 compile ‘com.orhanobut:logger:2.1.1’ 初始化在appaction或者baseActivity中 Logger.addLogAdapter(new AndroidLogAdapter());重写isLoggable可以关闭调试  Logger.addLogAdap">
-<meta name="keywords" content="github,开源,七月">
+  <meta name="description" content="1、logger  https://github.com/orhanobut/logger  添加 compile &amp;#39;com.orhanobut:logger:2.1.1&amp;#39; 初始化在appaction或者baseActivity中  Logger.addLogAdapter(new AndroidLogAdapter()); 重写isLoggable可以关闭调试      Log">
+<meta name="keywords" content="七月,github,开源">
 <meta property="og:type" content="article">
 <meta property="og:title" content="github优秀开源项目总结使用">
 <meta property="og:url" content="//chixi.online/2017/07/17/github/index.html">
 <meta property="og:site_name" content="QiShui">
-<meta property="og:description" content="1、logger  https://github.com/orhanobut/logger  添加 compile ‘com.orhanobut:logger:2.1.1’ 初始化在appaction或者baseActivity中 Logger.addLogAdapter(new AndroidLogAdapter());重写isLoggable可以关闭调试  Logger.addLogAdap">
+<meta property="og:description" content="1、logger  https://github.com/orhanobut/logger  添加 compile &amp;#39;com.orhanobut:logger:2.1.1&amp;#39; 初始化在appaction或者baseActivity中  Logger.addLogAdapter(new AndroidLogAdapter()); 重写isLoggable可以关闭调试      Log">
 <meta property="og:image" content="http://ot4o7dg77.bkt.clouddn.com/Acache.png">
 <meta property="og:image" content="http://ot4o7dg77.bkt.clouddn.com/Acache2.png">
-<meta property="og:updated_time" content="2017-07-18T05:09:09.409Z">
+<meta property="og:updated_time" content="2017-07-18T05:12:04.891Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github优秀开源项目总结使用">
-<meta name="twitter:description" content="1、logger  https://github.com/orhanobut/logger  添加 compile ‘com.orhanobut:logger:2.1.1’ 初始化在appaction或者baseActivity中 Logger.addLogAdapter(new AndroidLogAdapter());重写isLoggable可以关闭调试  Logger.addLogAdap">
+<meta name="twitter:description" content="1、logger  https://github.com/orhanobut/logger  添加 compile &amp;#39;com.orhanobut:logger:2.1.1&amp;#39; 初始化在appaction或者baseActivity中  Logger.addLogAdapter(new AndroidLogAdapter()); 重写isLoggable可以关闭调试      Log">
 <meta name="twitter:image" content="http://ot4o7dg77.bkt.clouddn.com/Acache.png">
   
     <link rel="alternative" href="/atom.xml" title="QiShui" type="application/atom+xml">
@@ -202,18 +202,34 @@
 </blockquote>
 <p><a href="https://github.com/orhanobut/logger" target="_blank" rel="external">https://github.com/orhanobut/logger</a></p>
 <ol>
-<li>添加<br> compile ‘com.orhanobut:logger:2.1.1’</li>
-<li><p>初始化在appaction或者baseActivity中<br> Logger.addLogAdapter(new AndroidLogAdapter());<br>重写isLoggable可以关闭调试</p>
-<p> Logger.addLogAdapter(new AndroidLogAdapter() {<br> @Override public boolean isLoggable(int priority, String tag) {<br> return BuildConfig.DEBUG;<br> }<br> });</p>
-<p> Logger.d(“hello”);<br> Logger.d(MAP);<br> Logger.d(SET);<br> Logger.d(LIST);<br> Logger.d(ARRAY);<br> Logger.json(JSON_CONTENT);<br> Logger.xml(XML_CONTENT);</p>
+<li>添加<br> <code>compile &#39;com.orhanobut:logger:2.1.1&#39;</code></li>
+<li><p>初始化在appaction或者baseActivity中 </p>
+<pre><code>Logger.addLogAdapter(new AndroidLogAdapter());
+</code></pre><p>重写isLoggable可以关闭调试</p>
+<blockquote>
+<pre><code>    Logger.addLogAdapter(new AndroidLogAdapter() {
+    @Override public boolean isLoggable(int priority, String tag) {
+return BuildConfig.DEBUG;
+    }
+    });
+
+Logger.d(&quot;hello&quot;);
+    Logger.d(MAP);
+    Logger.d(SET);
+    Logger.d(LIST);
+    Logger.d(ARRAY);
+    Logger.json(JSON_CONTENT);
+    Logger.xml(XML_CONTENT);
+</code></pre></blockquote>
 </li>
-</ol>
-<ol>
-<li>还可以把日志写在文件中</li>
+<li><p>还可以把日志写在文件中</p>
+</li>
 </ol>
 <blockquote>
 <p>注意默认tag为：PRETTY_LOGGER</p>
-<p>更新时间 2017年7月17日20:19:16</p>
+</blockquote>
+<pre><code>更新时间 2017年7月17日20:19:16
+</code></pre><blockquote>
 <p>2、ACache</p>
 </blockquote>
 <p><a href="https://github.com/yangfuhai/ASimpleCache" target="_blank" rel="external">https://github.com/yangfuhai/ASimpleCache</a></p>
@@ -267,15 +283,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">七月</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">开源</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">七月</a>
         		</li>
       		
 		</ul>
@@ -535,6 +551,18 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">七月</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网站</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">导航</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">bat</a>
               </li>
              
@@ -548,18 +576,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">开源</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">七月</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网站</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">导航</a>
               </li>
              
               <li class="article-tag-list-item">
