@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="//chixi.online">
   <title>自定义组合控件 | QiShui</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、mtextview.xml组合控件布局 &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt; &amp;lt;LinearLayout xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android&amp;quot; android:layout_width=&amp;quot;">
+  <meta name="description" content="一、mtextview.xml组合控件布局&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt; &amp;lt;LinearLayout xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android&amp;quot; android:layout_width=&amp;quot;m">
 <meta name="keywords" content="七月,自定义控件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自定义组合控件">
 <meta property="og:url" content="//chixi.online/2017/07/19/自定义控件一/index.html">
 <meta property="og:site_name" content="QiShui">
-<meta property="og:description" content="一、mtextview.xml组合控件布局 &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt; &amp;lt;LinearLayout xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android&amp;quot; android:layout_width=&amp;quot;">
-<meta property="og:updated_time" content="2017-07-19T14:51:35.052Z">
+<meta property="og:description" content="一、mtextview.xml组合控件布局&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt; &amp;lt;LinearLayout xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android&amp;quot; android:layout_width=&amp;quot;m">
+<meta property="og:updated_time" content="2017-07-19T15:14:43.902Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义组合控件">
-<meta name="twitter:description" content="一、mtextview.xml组合控件布局 &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt; &amp;lt;LinearLayout xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android&amp;quot; android:layout_width=&amp;quot;">
+<meta name="twitter:description" content="一、mtextview.xml组合控件布局&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt; &amp;lt;LinearLayout xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android&amp;quot; android:layout_width=&amp;quot;m">
   
     <link rel="alternative" href="/atom.xml" title="QiShui" type="application/atom+xml">
   
@@ -194,8 +194,7 @@
 	
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一、mtextview.xml组合控件布局</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        <h2 id="一、mtextview-xml组合控件布局"><a href="#一、mtextview-xml组合控件布局" class="headerlink" title="一、mtextview.xml组合控件布局"></a>一、mtextview.xml组合控件布局</h2><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
 android:layout_width=&quot;match_parent&quot;
 android:layout_height=&quot;wrap_content&quot;
@@ -246,14 +245,12 @@ android:orientation=&quot;vertical&quot;&gt;
 
 &lt;/LinearLayout&gt;
 </code></pre><a id="more"></a>
-<p>二、attrs.xml自定义属性</p>
-<pre><code>&lt;declare-styleable name=&quot;MTextView&quot;&gt;
+<h2 id="二、attrs-xml自定义属性"><a href="#二、attrs-xml自定义属性" class="headerlink" title="二、attrs.xml自定义属性"></a>二、attrs.xml自定义属性</h2><pre><code>&lt;declare-styleable name=&quot;MTextView&quot;&gt;
     &lt;attr name=&quot;leftResId&quot; format=&quot;integer|reference&quot;/&gt;
     &lt;attr name=&quot;midText&quot; format=&quot;string&quot;/&gt;
     &lt;attr name=&quot;xhx&quot; format=&quot;boolean&quot;/&gt;
 &lt;/declare-styleable&gt;
-</code></pre><p>三、自定义类</p>
-<pre><code>public class MTextView extends LinearLayout {
+</code></pre><h2 id="三、自定义类"><a href="#三、自定义类" class="headerlink" title="三、自定义类"></a>三、自定义类</h2><pre><code>public class MTextView extends LinearLayout {
 
 private ImageView iv;
 private TextView tv;
@@ -349,8 +346,7 @@ public void setXHX(Boolean flag) {
 <p> 获取属性 Boolean v_flag = attributes.getBoolean(R.styleable.MTextView_xhx, true);</p>
 <p>  提供java中设置的方法 public void setText(String text) {<br>tv.setText(text);}</p>
 </blockquote>
-<p>四、使用</p>
-<pre><code>布局文件直接使用
+<h2 id="四、使用"><a href="#四、使用" class="headerlink" title="四、使用"></a>四、使用</h2><pre><code>布局文件直接使用
 
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
@@ -404,15 +400,16 @@ protected void onCreate(Bundle savedInstanceState) {
     mTextView.setXHX(false);
     }
 }
-</code></pre><p>五、自定义属性类型</p>
+</code></pre><h2 id="五、自定义属性类型"><a href="#五、自定义属性类型" class="headerlink" title="五、自定义属性类型"></a>五、自定义属性类型</h2><p><a href="http://www.cnblogs.com/rayray/p/3442026.html" target="_blank" rel="external">http://www.cnblogs.com/rayray/p/3442026.html</a></p>
 <blockquote>
-<p>reference</p>
-<p>dimension</p>
-<p>string</p>
-<p>boolean</p>
-<p>color</p>
-<p>integer</p>
-<p>enum        </p>
+<p>reference  参考某一资源ID</p>
+<p>dimension  尺寸值</p>
+<p>string  字符串</p>
+<p>boolean 布尔值</p>
+<p>color 颜色值</p>
+<p>integer 整型值</p>
+<p>float 浮点值</p>
+<p>enum  枚举值      </p>
 </blockquote>
 <pre><code>&lt;attr name=&quot;sLineShow&quot; format=&quot;enum&quot;&gt;
         &lt;enum name=&quot;none&quot; value=&quot;0&quot; /&gt;
@@ -420,6 +417,11 @@ protected void onCreate(Bundle savedInstanceState) {
         &lt;enum name=&quot;bottom&quot; value=&quot;2&quot; /&gt;
         &lt;enum name=&quot;both&quot; value=&quot;3&quot; /&gt;
     &lt;/attr&gt;
+</code></pre><blockquote>
+<p>fraction：百分数</p>
+<p>flag：位或运算</p>
+</blockquote>
+<pre><code>属性定义时可以指定多种类型值
 </code></pre>
       
 
@@ -567,7 +569,7 @@ protected void onCreate(Bundle savedInstanceState) {
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    没设置目录
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、mtextview-xml组合控件布局"><span class="toc-number">1.</span> <span class="toc-text">一、mtextview.xml组合控件布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、attrs-xml自定义属性"><span class="toc-number">2.</span> <span class="toc-text">二、attrs.xml自定义属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、自定义类"><span class="toc-number">3.</span> <span class="toc-text">三、自定义类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、使用"><span class="toc-number">4.</span> <span class="toc-text">四、使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、自定义属性类型"><span class="toc-number">5.</span> <span class="toc-text">五、自定义属性类型</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -728,14 +730,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">7月</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
@@ -745,6 +739,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">七月</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">bat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">7月</a>
               </li>
              
               <li class="article-tag-list-item">
