@@ -123,11 +123,11 @@
 		  */
 		 // var minSrc='http://ot4o7dg77.bkt.clouddn.com/'++ data.link[i] + '.min.jpg';
 		 //http://ot4o7dg77.bkt.clouddn.com/Acache2.png
-		  var src='http://ot4o7dg77.bkt.clouddn.com/'+ data.link[i];
-		
+		// var src='http://ot4o7dg77.bkt.clouddn.com/'+ data.link[i];
+		var src='http://ot4o7dg77.bkt.clouddn.com/';
           var type = data.type[i];
           var target = src + (type === 'video' ? '.mp4' : '.jpg');
-          src += '.jpg';
+          src += 'min.jpg';
 		  
 		  var minSrc=src;
 
