@@ -18,8 +18,8 @@
                 var html, li = "";
                 for (var i = begin; i < end && i < data.length; i++) {
                     li += '<li><div class="img-box">' +
-                        '<a class="img-bg" rel="example_group" href="http://ot2rz6fmw.bkt.clouddn.com/' + data[i] + '?raw=true"></a>' +
-                        '<img lazy-src="http://ot2rz6fmw.bkt.clouddn.com/' + data[i] + '?raw=true" />' +
+                        '<a class="img-bg" rel="example_group" href="http://ot2rz6fmw.bkt.clouddn.com/' + data[i] ></a>' +
+                        '<img lazy-src="http://ot2rz6fmw.bkt.clouddn.com/' + data[i]  />' +
                         '</li>';
                 }
 
