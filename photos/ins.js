@@ -130,7 +130,7 @@
         <ul class="img-box-ul">' + liTmpl + '</ul>\
         </section>';
       }
-      document.querySelector('.instagram').innerHTML = '<div class="photos" itemscope="" itemtype="http://schema.org/ImageGallery">' + ulTmpl + '</div>';
+      document.querySelector('.instagram').innerHTML = '<div class="photos" itemscope="" itemtype="http://schema.org/ImageGallery"> <br><br>' + ulTmpl + '</div>';
       createVideoIncon();
       _view2.default.init();
     };
