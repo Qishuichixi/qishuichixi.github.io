@@ -6,17 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//chixi.online">
-  <title>QiShui</title>
+  <title>相册 | QiShui</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="做自己爱做的事，爱自己在做的事！">
+  <meta name="description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
 <meta property="og:type" content="website">
-<meta property="og:title" content="QiShui">
-<meta property="og:url" content="//chixi.online/index.html">
+<meta property="og:title" content="相册">
+<meta property="og:url" content="//chixi.online/photos/index.html">
 <meta property="og:site_name" content="QiShui">
-<meta property="og:description" content="做自己爱做的事，爱自己在做的事！">
+<meta property="og:description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta property="og:updated_time" content="2017-07-04T21:52:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="QiShui">
-<meta name="twitter:description" content="做自己爱做的事，爱自己在做的事！">
+<meta name="twitter:title" content="相册">
+<meta name="twitter:description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
   
     <link rel="alternative" href="/atom.xml" title="QiShui" type="application/atom+xml">
   
@@ -164,23 +165,17 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-自定义控件一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-photos" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/19/自定义控件一/">自定义组合控件</a>
+    <h1 class="article-title" itemprop="name">
+      相册
     </h1>
   
 
-        
-        <a href="/2017/07/19/自定义控件一/" class="archive-article-date">
-  	<time datetime="2017-07-19T14:49:16.530Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-19</time>
-</a>
         
       </header>
     
@@ -194,95 +189,127 @@
 	
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、mtextview-xml组合控件布局"><a href="#一、mtextview-xml组合控件布局" class="headerlink" title="一、mtextview.xml组合控件布局"></a>一、mtextview.xml组合控件布局</h2><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-android:layout_width=&quot;match_parent&quot;
-android:layout_height=&quot;wrap_content&quot;
-android:orientation=&quot;vertical&quot;&gt;
+        <link rel="stylesheet" href="./ins.css">
+<div class="photos-btn-wrap">
+	<a class="photos-btn active" href="javascript:void(0)" target="_blank" rel="external">Photos</a>
+	<a class="photos-btn" href="#">待续</a>
+</div>
+<div class="instagram itemscope">
+	<a href="https://www.instagram.com/lawlitewang20/" target="_blank" class="open-ins">图片正在加载中…</a>
+</div>
+<script>
+  (function() {
+    var loadScript = function(path) {
+      var $script = document.createElement('script')
+      document.getElementsByTagName('body')[0].appendChild($script)
+      $script.setAttribute('src', path)
+    }
+    setTimeout(function() {
+      loadScript('./ins.js')
+    }, 0)
+  })()
+</script>
 
-&lt;LinearLayout
-
-    android:layout_width=&quot;match_parent&quot;
-    android:layout_height=&quot;wrap_content&quot;
-    android:layout_marginLeft=&quot;10dp&quot;
-    android:layout_marginRight=&quot;10dp&quot;
-    android:layout_marginTop=&quot;5dp&quot;
-    android:orientation=&quot;horizontal&quot;&gt;
-
-    &lt;ImageView
-        android:id=&quot;@+id/left_iv&quot;
-        android:layout_width=&quot;40dp&quot;
-        android:layout_height=&quot;40dp&quot;
-        android:layout_marginLeft=&quot;10dp&quot;
-        android:src=&quot;@drawable/reg_bg&quot; /&gt;
-
-    &lt;TextView
-        android:id=&quot;@+id/mid_tv&quot;
-        android:layout_width=&quot;0dp&quot;
-        android:layout_height=&quot;wrap_content&quot;
-        android:layout_gravity=&quot;center&quot;
-        android:layout_marginLeft=&quot;10dp&quot;
-        android:layout_weight=&quot;1&quot;
-        android:text=&quot;文本&quot;
-        android:textColor=&quot;#000&quot;
-        android:textSize=&quot;18sp&quot; /&gt;
-
-
-    &lt;ImageView
-        android:id=&quot;@+id/right_iv&quot;
-        android:layout_width=&quot;30dp&quot;
-        android:layout_height=&quot;30dp&quot;
-        android:layout_marginRight=&quot;10dp&quot;
-        android:src=&quot;@mipmap/right_arr&quot; /&gt;
-&lt;/LinearLayout&gt;
-
-&lt;View
-    android:id=&quot;@+id/bottom_v&quot;
-    android:layout_width=&quot;match_parent&quot;
-    android:layout_height=&quot;1dp&quot;
-    android:layout_marginTop=&quot;3dp&quot;
-    android:background=&quot;#f100&quot; /&gt;
-
-&lt;/LinearLayout&gt;
-</code></pre>
-        
-          <a class="article-more-a" href="/2017/07/19/自定义控件一/#more">more >></a>
-        
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>你是一个好人<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://ot2rz6fmw.bkt.clouddn.com/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://ot2rz6fmw.bkt.clouddn.com/wexin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">七月</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">自定义控件</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/19/自定义控件一/">展开全文 >></a>
-        </p>
-      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
 
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://chixi.online/photos/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -297,124 +324,19 @@ android:orientation=&quot;vertical&quot;&gt;
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-
-
-
-  
-    <article id="post-github" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/17/github/">github优秀开源项目总结使用</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/17/github/" class="archive-article-date">
-  	<time datetime="2017-07-17T12:09:35.253Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-17</time>
-</a>
-        
-      </header>
-    
-	
-	
-
-
-	
-	
-	
-	
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>1、logger</p>
-</blockquote>
-<p><a href="https://github.com/orhanobut/logger" target="_blank" rel="external">https://github.com/orhanobut/logger</a></p>
-<ol>
-<li><p>添加 compile ‘com.orhanobut:logger:2.1.1</p>
-</li>
-<li><p>初始化在appaction或者baseActivity中Logger.addLogAdapter(new AndroidLogAdapter());</p>
-</li>
-<li><p>还可以把日志写在文件中</p>
-</li>
-</ol>
-<blockquote>
-<p>注意默认tag为：PRETTY_LOGGER</p>
-</blockquote>
-<pre><code>更新时间 2017年7月17日20:19:16
-</code></pre><blockquote>
-<p>2、ACache</p>
-</blockquote>
-<p><a href="https://github.com/yangfuhai/ASimpleCache" target="_blank" rel="external">https://github.com/yangfuhai/ASimpleCache</a></p>
-<pre><code>使用  ACache mCache = ACache.get(this);
-</code></pre><p><img src="http://ot4o7dg77.bkt.clouddn.com/Acache.png" alt=""></p>
-<p><img src="http://ot4o7dg77.bkt.clouddn.com/Acache2.png" alt=""></p>
-<blockquote>
-<p>2017年7月18日13:02:25 更新</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">开源</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">七月</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/17/github/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    没设置目录
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
@@ -422,441 +344,6 @@ android:orientation=&quot;vertical&quot;&gt;
 
 
 
-
-
-  
-    <article id="post-hao123" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/17/hao123/">常去的网站</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/17/hao123/" class="archive-article-date">
-  	<time datetime="2017-07-17T03:17:34.640Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-17</time>
-</a>
-        
-      </header>
-    
-	
-	
-
-
-	
-	
-	
-	
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="热门网站"><a href="#热门网站" class="headerlink" title="热门网站"></a>热门网站</h2><table>
-<thead>
-<tr>
-<th>生活</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://www.baidu.com" target="_blank" rel="external">百度</a></td>
-<td><a href="https://www.google.com" target="_blank" rel="external">谷歌</a></td>
-<td><a href="https://www.so.com/" target="_blank" rel="external">360</a></td>
-<td><a href="https://www.sogou.com/" target="_blank" rel="external">搜狗</a>    </td>
-</tr>
-<tr>
-<td><a href="http://music.163.com/" target="_blank" rel="external">网易云音乐</a></td>
-<td><a href="http://www.kugou.com/ " target="_blank" rel="external">酷狗</a></td>
-<td><a href="http://www.tingban.cn/" target="_blank" rel="external">考拉</a></td>
-<td><a href="https://douban.fm/" target="_blank" rel="external">豆瓣电台</a>    </td>
-</tr>
-<tr>
-<td><a href="http://www.taobao.com/" target="_blank" rel="external">淘宝</a></td>
-<td><a href="https://www.jd.com/" target="_blank" rel="external">京东</a></td>
-<td><a href="http://www.suning.com" target="_blank" rel="external">苏林易购</a></td>
-<td><a href="http://zshpldbz.com/" target="_blank" rel="external">今日特价</a></td>
-</tr>
-<tr>
-<td><a href="http://www.qidian.com/" target="_blank" rel="external">起点中文</a></td>
-<td><a href="http://www.zhuishushenqi.com/" target="_blank" rel="external">追书神器</a></td>
-<td><a href="http://www.ireader.com/index.php?ca=booksort.index&pca=booksort.index&pid=10" target="_blank" rel="external">掌阅</a></td>
-<td><a href="http://www.zongheng.com/" target="_blank" rel="external">纵横</a></td>
-</tr>
-<tr>
-<td><a href="https://www.douyu.com/directory" target="_blank" rel="external">斗鱼TV</a></td>
-<td><a href="https://www.panda.tv/cate" target="_blank" rel="external">熊猫</a></td>
-<td><a href="http://www.huya.com/g" target="_blank" rel="external">虎牙</a></td>
-<td><a href="https://www.zhanqi.tv/lives" target="_blank" rel="external">战旗</a></td>
-</tr>
-<tr>
-<td><a href="http://www.12306.cn" target="_blank" rel="external">12306</a></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-        
-          <a class="article-more-a" href="/2017/07/17/hao123/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">七月</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网站</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">导航</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/17/hao123/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-  
-    <article id="post-music" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/15/music/">收集喜欢的音乐</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/15/music/" class="archive-article-date">
-  	<time datetime="2017-07-15T11:55:51.339Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-15</time>
-</a>
-        
-      </header>
-    
-	
-	
-
-
-	
-	
-	
-	
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1、爱转角</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=5252346&auto=0&height=66"></iframe>
-
-
-<p>2、那时候</p>
-<p><a href="http://pan.baidu.com/s/1i4RoKvV" target="_blank" rel="external">http://pan.baidu.com/s/1i4RoKvV</a></p>
-<hr>
-        
-          <a class="article-more-a" href="/2017/07/15/music/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">七月</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">music</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">生活</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/15/music/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-  
-    <article id="post-bat" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/15/bat/">批处理</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/15/bat/" class="archive-article-date">
-  	<time datetime="2017-07-14T16:28:05.221Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-15</time>
-</a>
-        
-      </header>
-    
-	
-	
-
-
-	
-	
-	
-	
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>  新建update.bat</p>
-</blockquote>
-<pre><code>cd /d F:\Blog
-hexo clean &amp;&amp; hexo g &amp;&amp; hexo d
-pause
-</code></pre><hr>
-        
-          <a class="article-more-a" href="/2017/07/15/bat/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">bat</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">7月</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/15/bat/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-  
-    <article id="post-markdown" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/14/markdown/">简单语法</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/14/markdown/" class="archive-article-date">
-  	<time datetime="2017-07-14T15:35:23.145Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-14</time>
-</a>
-        
-      </header>
-    
-	
-	
-
-
-	
-	
-	
-	
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://blog.leanote.com/post/freewalk/Markdown-%E8%AF%AD%E6%B3%95%E6%89%8B%E5%86%8C#index" target="_blank" rel="external">源文章链接</a></p>
-<h2 id="1-斜体和粗体"><a href="#1-斜体和粗体" class="headerlink" title="1. 斜体和粗体"></a>1. 斜体和粗体</h2><p>1.斜体<br><em>七水剑帝</em><br><em>七水剑帝</em><br>2.粗体<br><strong>七水剑帝</strong><br>3.加粗斜体<br><strong><em>七水剑帝</em></strong><br>4.删除线<br><del>七水剑帝</del></p>
-        
-          <a class="article-more-a" href="/2017/07/14/markdown/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">七月</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/14/markdown/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -889,7 +376,7 @@ pause
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
 		isTag: false,
