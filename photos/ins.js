@@ -127,10 +127,10 @@
             </figure>';
         }
    ulTmpl = ulTmpl + '<section class="archives album"><h1 class="year">' + data.year + '年<em>' + data.month + '月</em><br>' + data.description+'</h1>\
-        <ul class="img-box-ul">' + liTmpl + '</ul>\
+        <ul style="width: 200px ;height: 200px ;background-color: #00AAAA ;margin: auto">' + liTmpl + '</ul>\
         </section>';
       }
-      document.querySelector('.instagram').innerHTML = '<div style="width: 200px ;height: 200px ;background-color: #00AAAA ;margin: auto" itemscope="" itemtype="http://schema.org/ImageGallery"><br><br> <br><br>' + ulTmpl + '</div>';
+      document.querySelector('.instagram').innerHTML = '<div class="photos" itemscope="" itemtype="http://schema.org/ImageGallery"><br><br> <br><br>' + ulTmpl + '</div>';
       createVideoIncon();
       _view2.default.init();
     };
