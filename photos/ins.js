@@ -79,7 +79,11 @@
       };
     }
 
-    
+    /**
+     * @name impush-client 
+     * @description 这个项目让我发家致富…
+     * @date 2016-12-1
+     */
 
     var _collection = [];
     var _count = 0;
@@ -112,9 +116,8 @@
         var data = res.list[j].arr;
         var liTmpl = "";
         for (var i = 0, len = data.link.length; i < len; i++) {
-			
           var minSrc = 'http://ot9nmrjuv.bkt.clouddn.com/' + data.link[i];
-          var src = 'http://ot9nmrjuv.bkt.clouddn.com/' + data.link[i];
+          var src =  'http://ot9nmrjuv.bkt.clouddn.com/' + data.link[i];
           var type = data.type[i];
           var target = src + (type === 'video' ? '.mp4' : '.jpg');
           src += '';
@@ -126,9 +129,9 @@
                 <figcaption style="display:none" itemprop="caption description">' + data.text[i] + '</figcaption>\
             </figure>';
         }
-   ulTmpl = ulTmpl + '<section class="archives album"><h1 class="year">' + data.year + '年<em>' + data.month + '月</em><br>' + data.description+'\
+        ulTmpl = ulTmpl + '<section class="archives album"><h1 class="year">' + data.year + '年<em>' + data.month + '月</em><br>' + data.description + '<br><br></h1>\
         <ul class="img-box-ul">' + liTmpl + '</ul>\
-        </h1></section>';
+        </section>';
       }
       document.querySelector('.instagram').innerHTML = '<div class="photos" itemscope="" itemtype="http://schema.org/ImageGallery">' + ulTmpl + '</div>';
       createVideoIncon();
