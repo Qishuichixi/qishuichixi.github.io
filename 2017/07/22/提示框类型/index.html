@@ -17,7 +17,8 @@
 <meta property="og:description" content="1、Toast a.多次点击只提示一次时长  public class MToast {  private static Toast mToast;  public static  void show(Context context,String msg){      if(mToast==null){        mToast=Toast.makeText(context,msg,Toast.">
 <meta property="og:image" content="http://ot9nmrjuv.bkt.clouddn.com/MDialog1.jpg">
 <meta property="og:image" content="http://ot9nmrjuv.bkt.clouddn.com/MDialog2.jpg">
-<meta property="og:updated_time" content="2017-07-22T14:24:40.256Z">
+<meta property="og:image" content="http://ot9nmrjuv.bkt.clouddn.com/IOSDialog1.png">
+<meta property="og:updated_time" content="2017-07-22T16:39:06.685Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="提示框">
 <meta name="twitter:description" content="1、Toast a.多次点击只提示一次时长  public class MToast {  private static Toast mToast;  public static  void show(Context context,String msg){      if(mToast==null){        mToast=Toast.makeText(context,msg,Toast.">
@@ -215,7 +216,7 @@ public static  void show(Context context,String msg){
     }
 }
 </code></pre><a id="more"></a>
-<h2 id="2、自定义Dialog"><a href="#2、自定义Dialog" class="headerlink" title="2、自定义Dialog"></a>2、自定义Dialog</h2><blockquote>
+<h2 id="2、自定义MDialog"><a href="#2、自定义MDialog" class="headerlink" title="2、自定义MDialog"></a>2、自定义MDialog</h2><blockquote>
 <p>a.自定义类</p>
 </blockquote>
 <pre><code>public class MDialog {
@@ -456,6 +457,211 @@ MDialog.build()
 </blockquote>
 <p><img src="http://ot9nmrjuv.bkt.clouddn.com/MDialog1.jpg" alt=""></p>
 <p><img src="http://ot9nmrjuv.bkt.clouddn.com/MDialog2.jpg" alt=""></p>
+<h2 id="3、自定义布局IOSDialog"><a href="#3、自定义布局IOSDialog" class="headerlink" title="3、自定义布局IOSDialog"></a>3、自定义布局IOSDialog</h2><blockquote>
+<p>a.自定义IOSDialog类</p>
+</blockquote>
+<pre><code>public class IOSDialog extends Dialog {
+
+private Context context;
+private int resId;
+private static IOSDialog dialog;
+private TextView tvmsg;
+private TextView tvOk;
+private TextView tvCancel;
+private View view;
+
+public static IOSDialog getInstance(Context context) {
+    //默认样式
+    if (dialog == null) {
+        dialog = new IOSDialog(context, R.style.customDialog, R.layout.iosdialog);
+    }
+    return dialog;
+}
+
+/**
+ * 一般
+ *
+ * @param context
+ * @param resLayout
+ */
+public IOSDialog(Context context, int resLayout) {
+    this(context, 0, 0);
+}
+
+/**
+ * 加入style
+ *
+ * @param context
+ * @param themeResId
+ * @param resLayout
+ */
+public IOSDialog(Context context, int themeResId, int resLayout) {
+    super(context, themeResId);
+    this.context = context;
+    this.resId = resLayout;
+
+}
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    this.setContentView(resId);
+}
+
+/**
+ * 第一个主体msg  第二个OK按钮 第三个Cancel按钮
+ *
+ * @param text
+ */
+public void show(String... text) {
+
+    dialog.show();
+    setAttrs(text);
+    tvOk.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            dialog.dismiss();
+            if (onClickListener != null) {
+                onClickListener.setOnClickListener();
+            }
+        }
+    });
+    tvCancel.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            dialog.dismiss();
+        }
+    });
+}
+
+private void setAttrs(String[] text) {
+    if (tvmsg == null)
+        tvmsg = (TextView) dialog.findViewById(R.id.msg);
+
+    if (tvOk == null)
+        tvOk = (TextView) dialog.findViewById(R.id.ok);
+
+    if (tvCancel == null)
+        tvCancel = (TextView) dialog.findViewById(R.id.cancel);
+
+    if (view == null)
+        view = dialog.findViewById(R.id.view);
+
+    if (text.length == 1)
+        tvmsg.setText(text[0]);
+    if (text.length == 2) {
+        tvmsg.setText(text[0]);
+        tvOk.setText(text[1]);
+    }
+    if (text.length == 3) {
+        tvmsg.setText(text[0]);
+        tvOk.setText(text[1]);
+        tvCancel.setText(text[2]);
+    }
+}
+
+private static OnClickListener onClickListener;
+
+public interface OnClickListener {
+    void setOnClickListener();
+}
+
+public IOSDialog setOnClickListener(OnClickListener onClickListener) {
+    this.onClickListener = onClickListener;
+    return this;
+}
+
+//返回自定义
+public &lt;T&gt; T getView(int id) {
+
+    return (T) dialog.findViewById(id);
+        }
+}
+</code></pre><blockquote>
+<p>b.自定义customDialog样式</p>
+</blockquote>
+<pre><code>&lt;!--CustomDialog--&gt;
+&lt;style name=&quot;customDialog&quot; parent=&quot;Theme.AppCompat.Dialog&quot;&gt;
+    &lt;item name=&quot;android:windowFrame&quot;&gt;@null&lt;/item&gt;&lt;!--取消默认Dialog的windowFrame框--&gt;
+    &lt;item name=&quot;android:windowNoTitle&quot;&gt;true&lt;/item&gt;&lt;!--设置无标题Dialog--&gt;
+    &lt;item name=&quot;android:backgroundDimEnabled&quot;&gt;true&lt;/item&gt;&lt;!--是否四周变暗--&gt;
+    &lt;item name=&quot;android:windowIsFloating&quot;&gt;true&lt;/item&gt;&lt;!-- 是否悬浮在activity上 --&gt;
+    &lt;item name=&quot;android:windowContentOverlay&quot;&gt;@null&lt;/item&gt;&lt;!-- 取消默认ContentOverlay背景 --&gt;
+    &lt;item name=&quot;android:windowBackground&quot;&gt;@android:color/transparent&lt;/item&gt;&lt;!--取消window默认背景 不然四角会有黑影--&gt;
+&lt;/style&gt;
+</code></pre><blockquote>
+<p>c.自定义布局iosdialog.xml</p>
+</blockquote>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+android:layout_width=&quot;275dp&quot;
+android:layout_height=&quot;wrap_content&quot;
+android:background=&quot;@drawable/shape_dialog_ios&quot;
+android:orientation=&quot;vertical&quot;&gt;
+
+&lt;TextView
+    android:id=&quot;@+id/msg&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:minLines=&quot;3&quot;
+    android:gravity=&quot;center&quot;
+    android:text=&quot;msg&quot;
+    android:textColor=&quot;#666666&quot;
+    android:textSize=&quot;18sp&quot; /&gt;
+
+&lt;View
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;0.5dp&quot;
+    android:background=&quot;#acacac&quot; /&gt;
+
+&lt;LinearLayout
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;40dp&quot;
+    android:orientation=&quot;horizontal&quot;&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/cancel&quot;
+        android:layout_width=&quot;0dp&quot;
+        android:layout_height=&quot;match_parent&quot;
+        android:layout_weight=&quot;1&quot;
+        android:gravity=&quot;center&quot;
+        android:text=&quot;取消&quot;
+        android:textColor=&quot;#666666&quot;
+        android:textSize=&quot;15sp&quot; /&gt;
+
+   &lt;View
+       android:id=&quot;@+id/view&quot;
+       android:layout_width=&quot;1dp&quot;
+       android:layout_height=&quot;match_parent&quot;
+       android:background=&quot;#acacac&quot;/&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/ok&quot;
+        android:layout_width=&quot;0dp&quot;
+        android:layout_height=&quot;match_parent&quot;
+        android:layout_weight=&quot;1&quot;
+        android:gravity=&quot;center&quot;
+        android:text=&quot;确认&quot;
+        android:textColor=&quot;#fe6000&quot;
+        android:textSize=&quot;15sp&quot; /&gt;
+&lt;/LinearLayout&gt;
+&lt;/LinearLayout&gt;
+</code></pre><blockquote>
+<p>d.使用</p>
+</blockquote>
+<pre><code>IOSDialog.getInstance(LoginActivity.this).setOnClickListener(new IOSDialog.OnClickListener() {
+                @Override
+                public void setOnClickListener() {
+                    MToast.show(LoginActivity.this, &quot;IOSDialog&quot;);
+                }
+            }).show(&quot;更新内容&quot;);
+</code></pre><blockquote>
+<p>e.效果</p>
+</blockquote>
+<p><img src="http://ot9nmrjuv.bkt.clouddn.com/IOSDialog1.png" alt=""></p>
+<blockquote>
+<p>其实完全自定义更多东西比如中间部分带图片，点击按钮效果，分割线颜色等</p>
+</blockquote>
 
       
 
@@ -607,7 +813,7 @@ MDialog.build()
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、Toast"><span class="toc-number">1.</span> <span class="toc-text">1、Toast</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、自定义Dialog"><span class="toc-number">2.</span> <span class="toc-text">2、自定义Dialog</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、Toast"><span class="toc-number">1.</span> <span class="toc-text">1、Toast</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、自定义MDialog"><span class="toc-number">2.</span> <span class="toc-text">2、自定义MDialog</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、自定义布局IOSDialog"><span class="toc-number">3.</span> <span class="toc-text">3、自定义布局IOSDialog</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -776,6 +982,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
@@ -793,10 +1003,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">导航</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
               </li>
              
               <li class="article-tag-list-item">
