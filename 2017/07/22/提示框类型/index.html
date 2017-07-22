@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://ot9nmrjuv.bkt.clouddn.com/MDialog1.jpg">
 <meta property="og:image" content="http://ot9nmrjuv.bkt.clouddn.com/MDialog2.jpg">
 <meta property="og:image" content="http://ot9nmrjuv.bkt.clouddn.com/IOSDialog1.png">
-<meta property="og:updated_time" content="2017-07-22T16:39:06.685Z">
+<meta property="og:updated_time" content="2017-07-22T16:44:37.475Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="提示框">
 <meta name="twitter:description" content="1、Toast a.多次点击只提示一次时长  public class MToast {  private static Toast mToast;  public static  void show(Context context,String msg){      if(mToast==null){        mToast=Toast.makeText(context,msg,Toast.">
@@ -647,7 +647,15 @@ android:orientation=&quot;vertical&quot;&gt;
 &lt;/LinearLayout&gt;
 &lt;/LinearLayout&gt;
 </code></pre><blockquote>
-<p>d.使用</p>
+<p>d.shape_dialog_ios样式</p>
+</blockquote>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;shape xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
+&lt;corners android:radius=&quot;10dp&quot; /&gt;
+&lt;solid android:color=&quot;#FFFFFF&quot; /&gt;
+&lt;/shape&gt;
+</code></pre><blockquote>
+<p>e.使用</p>
 </blockquote>
 <pre><code>IOSDialog.getInstance(LoginActivity.this).setOnClickListener(new IOSDialog.OnClickListener() {
                 @Override
@@ -656,7 +664,7 @@ android:orientation=&quot;vertical&quot;&gt;
                 }
             }).show(&quot;更新内容&quot;);
 </code></pre><blockquote>
-<p>e.效果</p>
+<p>f.效果</p>
 </blockquote>
 <p><img src="http://ot9nmrjuv.bkt.clouddn.com/IOSDialog1.png" alt=""></p>
 <blockquote>
@@ -982,18 +990,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">开源</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">七月</a>
               </li>
              
@@ -1006,7 +1002,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">开源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1015,6 +1019,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">生活</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
