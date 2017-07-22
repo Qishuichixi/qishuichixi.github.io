@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//chixi.online">
-  <title>QiShui</title>
+  <title>提示框 | QiShui</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="404">
-<meta property="og:type" content="website">
-<meta property="og:title" content="QiShui">
-<meta property="og:url" content="//chixi.online/404.html">
+  <meta name="description" content="1、Toastpublic class MToast {  private static Toast mToast;  public static  void show(Context context,String msg){      if(mToast==null){        mToast=Toast.makeText(context,msg,Toast.LENGTH_LONG);">
+<meta name="keywords" content="七月,提示框,Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="提示框">
+<meta property="og:url" content="//chixi.online/2017/07/22/提示框类型/index.html">
 <meta property="og:site_name" content="QiShui">
-<meta property="og:description" content="404">
-<meta property="og:updated_time" content="2017-07-20T10:42:06.310Z">
+<meta property="og:description" content="1、Toastpublic class MToast {  private static Toast mToast;  public static  void show(Context context,String msg){      if(mToast==null){        mToast=Toast.makeText(context,msg,Toast.LENGTH_LONG);">
+<meta property="og:image" content="//chixi.online/2017/07/22/提示框类型/%22http://ot9nmrjuv.bkt.clouddn.com/MDialog1.jpg%22">
+<meta property="og:image" content="//chixi.online/2017/07/22/提示框类型/%22http://ot9nmrjuv.bkt.clouddn.com/MDialog2.jpg%22">
+<meta property="og:updated_time" content="2017-07-22T14:21:14.366Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="QiShui">
-<meta name="twitter:description" content="404">
+<meta name="twitter:title" content="提示框">
+<meta name="twitter:description" content="1、Toastpublic class MToast {  private static Toast mToast;  public static  void show(Context context,String msg){      if(mToast==null){        mToast=Toast.makeText(context,msg,Toast.LENGTH_LONG);">
+<meta name="twitter:image" content="//chixi.online/2017/07/22/提示框类型/%22http://ot9nmrjuv.bkt.clouddn.com/MDialog1.jpg%22">
   
     <link rel="alternative" href="/atom.xml" title="QiShui" type="application/atom+xml">
   
@@ -165,8 +169,23 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="default-undefined" class="article article-type-default " itemscope itemprop="blogPost">
+            <article id="post-提示框类型" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      提示框
+    </h1>
+  
+
+        
+        <a href="/2017/07/22/提示框类型/" class="archive-article-date">
+  	<time datetime="2017-07-22T13:51:05.720Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-22</time>
+</a>
+        
+      </header>
     
 	
 	
@@ -178,15 +197,261 @@
 	
     <div class="article-entry" itemprop="articleBody">
       
-        <html>
-    <head>
-         <meta charset="UTF-8">
-         <title>404</title>                                                                                                                                        
-    </head>
-    <body>
-         <script type="text/javascript" src="http://www.qq.com/404/search_children.js" charset="utf-8"></script>
-    </body>
-</html>
+        <h2 id="1、Toast"><a href="#1、Toast" class="headerlink" title="1、Toast"></a>1、Toast</h2><pre><code>public class MToast {
+
+private static Toast mToast;
+
+public static  void show(Context context,String msg){
+
+    if(mToast==null){
+       mToast=Toast.makeText(context,msg,Toast.LENGTH_LONG);
+    }else{
+        mToast.setText(msg);
+    }
+    mToast.show();
+    }
+}
+</code></pre><a id="more"></a>
+<h2 id="2、自定义Dialog"><a href="#2、自定义Dialog" class="headerlink" title="2、自定义Dialog"></a>2、自定义Dialog</h2><blockquote>
+<p>a.自定义类</p>
+</blockquote>
+<pre><code>public class MDialog {
+
+private static MDialog mDialog;
+private String title;//标题
+private String message;//提示内容
+private int iconResId;//图标
+private Context context;//上下文对象
+private String OK;//确认
+private String Cancel;//取消
+private int btnOKSize;
+private int btnCancelSize;
+private int titleSize;//标题大小
+private int messageSize;//主题大小
+private String titleColor;//标题颜色
+private String msgColor;//信息颜色
+private String okColor;//颜色
+private String cancelColor;//标题颜色
+
+
+private MDialog() {
+}
+
+public static MDialog build() {
+
+    return new MDialog();
+}
+
+//设置上下文对象
+public MDialog with(Context context) {
+    this.context = context;
+    return this;
+}
+
+// 设置标题
+public MDialog title(String title) {
+    this.title = title;
+    return this;
+}
+
+
+//设置消息
+public MDialog message(String message) {
+    this.message = message;
+    return this;
+}
+
+//设置图标
+public MDialog setIconResId(int iconResId) {
+    this.iconResId = iconResId;
+    return this;
+}
+
+//设置确认
+public MDialog setOK(String OK) {
+    this.OK = OK;
+    return this;
+}
+
+public MDialog setCancel(String Cancel) {
+    this.Cancel = Cancel;
+    return this;
+}
+
+public MDialog setTitleSize(int titleSize) {
+    this.titleSize = titleSize;
+    return this;
+}
+
+//设置颜色
+public MDialog setMessageSize(int messageSize) {
+    this.messageSize = messageSize;
+    return this;
+}
+
+
+public MDialog setOKSize(int btnOKSize) {
+    this.btnOKSize = btnOKSize;
+    return this;
+}
+
+public MDialog setCancelSize(int btnCancelSize) {
+    this.btnCancelSize = btnCancelSize;
+    return this;
+}
+
+
+public MDialog setTitleColor(String titleColor) {
+    this.titleColor = titleColor;
+    return this;
+}
+
+
+public MDialog setMsgColor(String msgColor) {
+    this.msgColor = msgColor;
+    return this;
+}
+
+
+public MDialog setOkColor(String okColor) {
+    this.okColor = okColor;
+    return this;
+}
+
+
+
+public MDialog setCancelColor(String cancelColor) {
+    this.cancelColor = cancelColor;
+    return this;
+}
+
+//显示对话框
+public void show(final OnClickCallback callback) {
+
+    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+    if (!TextUtils.isEmpty(title)) {
+        builder.setTitle(title);
+    }
+    if (!TextUtils.isEmpty(message)) {
+        builder.setMessage(message);
+    }
+    if (iconResId != 0) {
+        builder.setIcon(iconResId);
+    }
+    if (TextUtils.isEmpty(Cancel)) {
+        Cancel = &quot;取消&quot;;
+    }
+    if (TextUtils.isEmpty(OK)) {
+        OK = &quot;确认&quot;;
+    }
+    builder.setNegativeButton(Cancel, new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            callback.onCancel();
+        }
+    });
+    builder.setPositiveButton(OK, new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            callback.onOk();
+        }
+    });
+    AlertDialog dialog = builder.create();
+    dialog.show();
+    //设置属性
+    setAttribute(dialog);
+
+
+}
+
+private void setAttribute(AlertDialog dialog) {
+    //设置标题
+    DialogTitle title = (DialogTitle) dialog.findViewById(R.id.alertTitle);
+    TextView textView = (TextView) dialog.findViewById(android.R.id.message);
+    Button positiveBtn = dialog.getButton(DialogInterface.BUTTON_POSITIVE);
+    Button negativeBtn = dialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+    //设置大小
+    if (titleSize != 0) title.setTextSize(titleSize);
+    if (messageSize != 0) textView.setTextSize(messageSize);
+    if (btnOKSize != 0) positiveBtn.setTextSize(btnOKSize);
+    if (btnCancelSize != 0) negativeBtn.setTextSize(btnCancelSize);
+    //设置颜色
+
+    try {
+
+        if(!TextUtils.isEmpty(okColor))
+            positiveBtn.setTextColor(Color.parseColor(okColor));
+        if(!TextUtils.isEmpty(cancelColor))
+            negativeBtn.setTextColor(Color.parseColor(cancelColor));
+        if(!TextUtils.isEmpty(titleColor))
+            title.setTextColor(Color.parseColor(titleColor));
+        if(!TextUtils.isEmpty(msgColor))
+            textView.setTextColor(Color.parseColor(msgColor));
+
+    }catch (Exception e){
+
+        throw  new RuntimeException(&quot;颜色属性设置出错，格式为#123456&quot;);
+    }
+
+}
+
+
+interface IOnClickCallback {
+    void onOk();//点击确定的时候回调
+}
+
+public static abstract class OnClickCallback implements IOnClickCallback {
+    public void onCancel() {//点击取消的时候回调
+    }
+    }
+}
+</code></pre><blockquote>
+<p>b.用法</p>
+</blockquote>
+<pre><code>//一般
+MDialog.build()
+    .with(getActivity())
+    .title(&quot;警告&quot;)
+    .message(&quot;您要删除吗?&quot;)
+    .show(new MDialog.OnClickCallback() {
+        @Override
+        public void onOk() {
+            Toast.makeText(getActivity(), &quot;OnClickCallback&quot;, Toast.LENGTH_SHORT).show();
+        }
+    });
+
+ //定制
+ `MDialog.build()
+    .with(getActivity())
+    .setIconResId(R.mipmap.dialogicon)
+    .title(&quot;警告&quot;)
+    .setTitleSize(24)
+    .setTitleColor(&quot;#ff0000&quot;)
+    .message(&quot;您确定要删除吗?&quot;)
+    .setMessageSize(23)
+    .setMsgColor(&quot;#BCD1D4&quot;)
+    .setOK(&quot;更新&quot;)
+    .setOKSize(25)
+    .setOkColor(&quot;#663123&quot;)
+    .setCancel(&quot;跳过&quot;)
+    .setCancelSize(22)
+    .setCancelColor(&quot;#000000&quot;)
+    .show(new MDialog.OnClickCallback() {
+        @Override
+        public void onOk() {
+            Toast.makeText(getActivity(), &quot;OnClickCallback&quot;, Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onCancel() {
+            Toast.makeText(getActivity(), &quot;onCancel&quot;, Toast.LENGTH_SHORT).show();
+
+        }
+    });
+</code></pre><p>c.效果图片</p>
+<p><img src="&quot;http://ot9nmrjuv.bkt.clouddn.com/MDialog1.jpg&quot;" alt="" title="MDialog1.jpg"></p>
+<p><img src="&quot;http://ot9nmrjuv.bkt.clouddn.com/MDialog2.jpg&quot;" alt="" title="MDialog2.jpg"></p>
+
       
 
       
@@ -225,6 +490,25 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">七月</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">提示框</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -275,7 +559,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://chixi.online/404.html" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://chixi.online/2017/07/22/提示框类型/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -287,6 +571,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/19/自定义控件一/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">自定义组合控件</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -308,7 +602,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    没设置目录
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、Toast"><span class="toc-number">1.</span> <span class="toc-text">1、Toast</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、自定义Dialog"><span class="toc-number">2.</span> <span class="toc-text">2、自定义Dialog</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -378,7 +672,7 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
