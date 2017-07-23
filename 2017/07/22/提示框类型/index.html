@@ -18,7 +18,9 @@
 <meta property="og:image" content="http://ot9nmrjuv.bkt.clouddn.com/MDialog1.jpg">
 <meta property="og:image" content="http://ot9nmrjuv.bkt.clouddn.com/MDialog2.jpg">
 <meta property="og:image" content="http://ot9nmrjuv.bkt.clouddn.com/IOSDialog1.png">
-<meta property="og:updated_time" content="2017-07-22T16:44:37.475Z">
+<meta property="og:image" content="http://ot9nmrjuv.bkt.clouddn.com/iosDialog_b.png">
+<meta property="og:image" content="http://ot9nmrjuv.bkt.clouddn.com/iosDialog_M.png">
+<meta property="og:updated_time" content="2017-07-23T10:00:20.017Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="提示框">
 <meta name="twitter:description" content="1、Toast a.多次点击只提示一次时长  public class MToast {  private static Toast mToast;  public static  void show(Context context,String msg){      if(mToast==null){        mToast=Toast.makeText(context,msg,Toast.">
@@ -198,7 +200,7 @@
 	
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1、Toast"><a href="#1、Toast" class="headerlink" title="1、Toast"></a>1、Toast</h2><blockquote>
+        <h1 id="1、Toast"><a href="#1、Toast" class="headerlink" title="1、Toast"></a>1、Toast</h1><blockquote>
 <p>a.多次点击只提示一次时长</p>
 </blockquote>
 <pre><code>public class MToast {
@@ -216,7 +218,7 @@ public static  void show(Context context,String msg){
     }
 }
 </code></pre><a id="more"></a>
-<h2 id="2、自定义MDialog"><a href="#2、自定义MDialog" class="headerlink" title="2、自定义MDialog"></a>2、自定义MDialog</h2><blockquote>
+<h1 id="2、自定义MDialog"><a href="#2、自定义MDialog" class="headerlink" title="2、自定义MDialog"></a>2、自定义MDialog</h1><blockquote>
 <p>a.自定义类</p>
 </blockquote>
 <pre><code>public class MDialog {
@@ -457,7 +459,7 @@ MDialog.build()
 </blockquote>
 <p><img src="http://ot9nmrjuv.bkt.clouddn.com/MDialog1.jpg" alt=""></p>
 <p><img src="http://ot9nmrjuv.bkt.clouddn.com/MDialog2.jpg" alt=""></p>
-<h2 id="3、自定义布局IOSDialog"><a href="#3、自定义布局IOSDialog" class="headerlink" title="3、自定义布局IOSDialog"></a>3、自定义布局IOSDialog</h2><blockquote>
+<h1 id="3、自定义布局IOSDialog"><a href="#3、自定义布局IOSDialog" class="headerlink" title="3、自定义布局IOSDialog"></a>3、自定义布局IOSDialog</h1><blockquote>
 <p>a.自定义IOSDialog类</p>
 </blockquote>
 <pre><code>public class IOSDialog extends Dialog {
@@ -670,6 +672,430 @@ android:orientation=&quot;vertical&quot;&gt;
 <blockquote>
 <p>其实完全自定义更多东西比如中间部分带图片，点击按钮效果，分割线颜色等</p>
 </blockquote>
+<h1 id="4、底部弹出ListDialog"><a href="#4、底部弹出ListDialog" class="headerlink" title="4、底部弹出ListDialog"></a>4、底部弹出ListDialog</h1><blockquote>
+<p>a.自定义类</p>
+</blockquote>
+<pre><code>public class ListDialog {
+
+private Context context;
+private Dialog dialog;
+private TextView txt_title;
+private TextView txt_cancel;
+private LinearLayout lLayout_content;
+private ScrollView sLayout_content;
+private boolean showTitle = false;
+private List&lt;SheetItem&gt; sheetItemList;
+private Display display;
+
+public ListDialog(Context context) {
+    this.context = context;
+    WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+    display = windowManager.getDefaultDisplay();
+}
+
+//底部
+public ListDialog builderB() {
+    builder(1);
+    return this;
+}
+
+//中间
+public ListDialog builderM() {
+    builder(0.8f, 1);
+    return this;
+}
+
+private ListDialog builder(float width, int... pos) {
+    // 获取Dialog布局
+    View view = LayoutInflater.from(context).inflate(R.layout.view_actionsheet, null);
+
+    // 设置Dialog最小宽度为屏幕宽度
+    if (width &lt;= 0.5) width = 0.5f;
+    if (width &gt;= 1) width = 0.95f;
+
+    view.setMinimumWidth((int) (display.getWidth() * width));
+
+    // 获取自定义Dialog布局中的控件
+    sLayout_content = (ScrollView) view.findViewById(R.id.sLayout_content);
+    lLayout_content = (LinearLayout) view.findViewById(R.id.lLayout_content);
+    txt_title = (TextView) view.findViewById(R.id.txt_title);
+    txt_cancel = (TextView) view.findViewById(R.id.txt_cancel);
+    txt_cancel.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            dialog.dismiss();
+        }
+    });
+
+    // 定义Dialog布局和参数
+    //加载不同的style
+    if (pos.length == 0)
+        dialog = new Dialog(context, R.style.ActionSheetDialogStyle);
+    if (pos.length == 1 &amp;&amp; pos[0] == 1)
+        dialog = new Dialog(context, R.style.AlertDialogStyle);
+
+    dialog.setContentView(view);
+    Window dialogWindow = dialog.getWindow();
+
+    if (pos.length == 0)
+        //默认
+        dialogWindow.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM);
+    if (pos.length == 1) {
+        if (pos[0] == 1) {
+            //为1设置在中间
+            txt_cancel.setVisibility(View.INVISIBLE);
+            dialogWindow.setGravity(Gravity.CENTER);
+            dialog.setCancelable(true);
+            dialog.setCanceledOnTouchOutside(true);
+        }
+    }
+
+    WindowManager.LayoutParams lp = dialogWindow.getAttributes();
+    lp.x = 0;
+    lp.y = 0;
+    dialogWindow.setAttributes(lp);
+
+    return this;
+}
+
+public ListDialog setTitle(String title) {
+    showTitle = true;
+    txt_title.setVisibility(View.VISIBLE);
+    txt_title.setText(title);
+    return this;
+}
+
+//#ff0000
+public ListDialog setTitleAndColorAndSize(int size, String color, String title) {
+    showTitle = true;
+    txt_title.setVisibility(View.VISIBLE);
+    txt_title.setText(title);
+    txt_title.setTextSize(size);
+    txt_title.setTextColor(Color.parseColor(color));
+    return this;
+}
+
+public ListDialog setCancelable(boolean cancel) {
+    dialog.setCancelable(cancel);
+    return this;
+}
+
+public ListDialog setCanceledOnTouchOutside(boolean cancel) {
+    dialog.setCanceledOnTouchOutside(cancel);
+    return this;
+}
+
+/**
+ * @param strItem  条目名称
+ * @param color    条目字体颜色，设置null则默认蓝色
+ * @param listener
+ * @return
+ */
+public ListDialog addSheetItem(String strItem, SheetItemColor color, OnSheetItemClickListener listener) {
+    if (sheetItemList == null) {
+        sheetItemList = new ArrayList&lt;SheetItem&gt;();
+    }
+    sheetItemList.add(new SheetItem(strItem, color, listener));
+    return this;
+}
+
+/**
+ * 设置条目布局
+ */
+private void setSheetItems(int... gravity) {
+    if (sheetItemList == null || sheetItemList.size() &lt;= 0) {
+        return;
+    }
+
+    int size = sheetItemList.size();
+
+    // TODO 高度控制，非最佳解决办法
+    // 添加条目过多的时候控制高度
+    if (size &gt;= 7) {
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) sLayout_content.getLayoutParams();
+        params.height = display.getHeight() / 2;
+        sLayout_content.setLayoutParams(params);
+    }
+
+    // 循环添加条目
+    for (int i = 1; i &lt;= size; i++) {
+        final int index = i;
+        SheetItem sheetItem = sheetItemList.get(i - 1);
+        String strItem = sheetItem.name;
+        SheetItemColor color = sheetItem.color;
+        final OnSheetItemClickListener listener = (OnSheetItemClickListener) sheetItem.itemClickListener;
+
+        TextView textView = new TextView(context);
+        textView.setText(strItem);
+        textView.setTextSize(18);
+
+        //设置字体位置
+        if (gravity.length == 0 || gravity == null)
+            textView.setGravity(Gravity.CENTER);
+        if (gravity.length == 1) {
+            textView.setGravity(gravity[0]);
+            if (showTitle) {
+                txt_title.setGravity(gravity[0]);
+            }
+        }
+
+        // 背景图片
+        if (size == 1) {
+            if (showTitle) {
+                textView.setBackgroundResource(R.drawable.actionsheet_bottom_selector);
+            } else {
+                textView.setBackgroundResource(R.drawable.actionsheet_single_selector);
+            }
+        } else {
+            if (showTitle) {
+                if (i &gt;= 1 &amp;&amp; i &lt; size) {
+                    textView.setBackgroundResource(R.drawable.actionsheet_middle_selector);
+                } else {
+                    textView.setBackgroundResource(R.drawable.actionsheet_bottom_selector);
+                }
+            } else {
+                if (i == 1) {
+                    textView.setBackgroundResource(R.drawable.actionsheet_top_selector);
+                } else if (i &lt; size) {
+                    textView.setBackgroundResource(R.drawable.actionsheet_middle_selector);
+                } else {
+                    textView.setBackgroundResource(R.drawable.actionsheet_bottom_selector);
+                }
+            }
+        }
+
+        // 字体颜色
+        if (color == null) {
+            textView.setTextColor(Color.parseColor(&quot;#037BFF&quot;));
+        } else {
+            textView.setTextColor(Color.parseColor(color.getName()));
+        }
+
+        // 高度
+        float scale = context.getResources().getDisplayMetrics().density;
+        int height = (int) (45 * scale + 0.5f);
+        textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height));
+
+        // 点击事件
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onClick(index);
+                dialog.dismiss();
+            }
+        });
+
+        lLayout_content.addView(textView);
+    }
+}
+
+public void show(int... gravity) {
+    setSheetItems(gravity);
+    dialog.show();
+}
+
+public interface OnSheetItemClickListener {
+    void onClick(int which);
+}
+
+public class SheetItem {
+    String name;
+    OnSheetItemClickListener itemClickListener;
+    SheetItemColor color;
+
+    public SheetItem(String name, SheetItemColor color, OnSheetItemClickListener itemClickListener) {
+        this.name = name;
+        this.color = color;
+        this.itemClickListener = itemClickListener;
+    }
+}
+
+public enum SheetItemColor {
+    Blue(&quot;#037BFF&quot;), Red(&quot;#FD4A2E&quot;), Black(&quot;#000000&quot;);
+
+    private String name;
+
+    private SheetItemColor(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+}
+</code></pre><blockquote>
+<p>b.布局文件view_actionsheet.xml</p>
+</blockquote>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+android:layout_width=&quot;match_parent&quot;
+android:layout_height=&quot;wrap_content&quot;
+android:gravity=&quot;center&quot;
+android:orientation=&quot;vertical&quot;
+android:padding=&quot;10dp&quot; &gt;
+
+&lt;TextView
+    android:text=&quot;标题&quot;
+    android:id=&quot;@+id/txt_title&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:background=&quot;@drawable/actionsheet_top_normal&quot;
+    android:gravity=&quot;center&quot;
+    android:minHeight=&quot;45dp&quot;
+    android:paddingTop=&quot;10dp&quot;
+    android:paddingBottom=&quot;10dp&quot;
+    android:paddingLeft=&quot;15dp&quot;
+    android:paddingRight=&quot;15dp&quot;
+    android:textColor=&quot;@color/actionsheet_gray&quot;
+    android:textSize=&quot;13sp&quot;
+    android:visibility=&quot;gone&quot; /&gt;
+
+&lt;ScrollView
+    android:id=&quot;@+id/sLayout_content&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:fadingEdge=&quot;none&quot;
+     &gt;
+
+    &lt;LinearLayout
+        android:id=&quot;@+id/lLayout_content&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:orientation=&quot;vertical&quot; &gt;
+    &lt;/LinearLayout&gt;
+&lt;/ScrollView&gt;
+
+&lt;TextView
+    android:id=&quot;@+id/txt_cancel&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;45dp&quot;
+    android:layout_marginTop=&quot;8dp&quot;
+    android:background=&quot;@drawable/actionsheet_bottom_selector&quot;
+    android:gravity=&quot;center&quot;
+    android:text=&quot;取消&quot;
+    android:textColor=&quot;@color/actionsheet_blue&quot;
+    android:textSize=&quot;18sp&quot;
+    android:textStyle=&quot;bold&quot; /&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre><blockquote>
+<p>c.style样式</p>
+</blockquote>
+<pre><code>  &lt;!-- 自定义仿IOS的AlertDialog的样式 --&gt;
+&lt;style name=&quot;AlertDialogStyle&quot; parent=&quot;@android:style/Theme.Dialog&quot;&gt;
+
+    &lt;!-- 背景透明 --&gt;
+    &lt;item name=&quot;android:windowBackground&quot;&gt;@android:color/transparent&lt;/item&gt;
+    &lt;item name=&quot;android:windowContentOverlay&quot;&gt;@null&lt;/item&gt;
+    &lt;!-- 浮于Activity之上 --&gt;
+    &lt;item name=&quot;android:windowIsFloating&quot;&gt;true&lt;/item&gt;
+    &lt;!-- 边框 --&gt;
+    &lt;item name=&quot;android:windowFrame&quot;&gt;@null&lt;/item&gt;
+    &lt;!-- Dialog以外的区域模糊效果 --&gt;
+    &lt;item name=&quot;android:backgroundDimEnabled&quot;&gt;true&lt;/item&gt;
+    &lt;!-- 无标题 --&gt;
+    &lt;item name=&quot;android:windowNoTitle&quot;&gt;true&lt;/item&gt;
+    &lt;!-- 半透明 --&gt;
+    &lt;item name=&quot;android:windowIsTranslucent&quot;&gt;true&lt;/item&gt;
+
+&lt;/style&gt;
+
+&lt;!-- 自定义仿IOS的ActionSheet底部Dialog的样式 ，有模糊效果 --&gt;
+&lt;style name=&quot;ActionSheetDialogStyle&quot; parent=&quot;AlertDialogStyle&quot;&gt;
+    &lt;!-- Dialog进入及退出动画 --&gt;
+    &lt;item name=&quot;android:windowAnimationStyle&quot;&gt;@style/ActionSheetDialogAnimation&lt;/item&gt;
+&lt;/style&gt;
+
+&lt;!-- ActionSheet进出动画 --&gt;
+&lt;style name=&quot;ActionSheetDialogAnimation&quot; parent=&quot;@android:style/Animation.Dialog&quot;&gt;
+    &lt;item name=&quot;android:windowEnterAnimation&quot;&gt;@anim/actionsheet_dialog_in&lt;/item&gt;
+    &lt;item name=&quot;android:windowExitAnimation&quot;&gt;@anim/actionsheet_dialog_out&lt;/item&gt;
+&lt;/style&gt;
+</code></pre><blockquote>
+<p>d.drawable文件资源下载</p>
+</blockquote>
+<p><a href="http://ot9nmrjuv.bkt.clouddn.com/drawable_iosdialog.rar" target="_blank" rel="external">http://ot9nmrjuv.bkt.clouddn.com/drawable_iosdialog.rar</a></p>
+<blockquote>
+<p>e.anim动画</p>
+</blockquote>
+<p>1、actionsheet_dialog_in.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;translate xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+android:duration=&quot;500&quot;
+android:fromYDelta=&quot;100%&quot;
+android:toYDelta=&quot;0&quot; /&gt;
+</code></pre><p>2、actionsheet_dialog_out.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;translate xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+android:duration=&quot;500&quot;
+android:fromYDelta=&quot;0&quot;
+android:toYDelta=&quot;100%&quot; /&gt;
+</code></pre><blockquote>
+<p>f.使用</p>
+</blockquote>
+<p>1、底部</p>
+<pre><code>new ListDialog(MainActivity.this)
+                    .builderB()
+                    .setCancelable(false)
+                    .setCanceledOnTouchOutside(false)
+                    .addSheetItem(&quot;发送给好友&quot;, ListDialog.SheetItemColor.Blue,
+                            new ListDialog.OnSheetItemClickListener() {
+                                @Override
+                                public void onClick(int which) {
+
+                                }
+                            })
+                    .addSheetItem(&quot;保存到手机&quot;, ListDialog.SheetItemColor.Blue,
+                            new ListDialog.OnSheetItemClickListener() {
+                                @Override
+                                public void onClick(int which) {
+
+                                }
+                            })
+                    .show();
+</code></pre><p>2、效果<br><img src="http://ot9nmrjuv.bkt.clouddn.com/iosDialog_b.png" alt=""></p>
+<p>3、中间</p>
+<pre><code>new ListDialog(MainActivity.this)
+                   .builderM()
+                   .setTitleAndColorAndSize(22,&quot;#ff0000&quot;,&quot;一念永恒&quot;)
+                   .addSheetItem(&quot;置顶&quot;, ListDialog.SheetItemColor.Black,
+                           new ListDialog.OnSheetItemClickListener() {
+                               @Override
+                               public void onClick(int which) {
+
+                               }
+                           })
+                   .addSheetItem(&quot;书籍详情&quot;, ListDialog.SheetItemColor.Black,
+                           new ListDialog.OnSheetItemClickListener() {
+                               @Override
+                               public void onClick(int which) {
+
+                               }
+                           })
+                   .addSheetItem(&quot;缓存全本&quot;, ListDialog.SheetItemColor.Black,
+                           new ListDialog.OnSheetItemClickListener() {
+                               @Override
+                               public void onClick(int which) {
+
+                               }
+                           })
+                   .addSheetItem(&quot;删除&quot;, ListDialog.SheetItemColor.Black,
+                           new ListDialog.OnSheetItemClickListener() {
+                               @Override
+                               public void onClick(int which) {
+
+                               }
+                           })
+                   .show(Gravity.LEFT);
+</code></pre><blockquote>
+<p>4、效果</p>
+</blockquote>
+<p><img src="http://ot9nmrjuv.bkt.clouddn.com/iosDialog_M.png" alt=""></p>
 
       
 
@@ -830,7 +1256,7 @@ android:orientation=&quot;vertical&quot;&gt;
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、Toast"><span class="toc-number">1.</span> <span class="toc-text">1、Toast</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、自定义MDialog"><span class="toc-number">2.</span> <span class="toc-text">2、自定义MDialog</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、自定义布局IOSDialog"><span class="toc-number">3.</span> <span class="toc-text">3、自定义布局IOSDialog</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1、Toast"><span class="toc-number">1.</span> <span class="toc-text">1、Toast</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2、自定义MDialog"><span class="toc-number">2.</span> <span class="toc-text">2、自定义MDialog</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3、自定义布局IOSDialog"><span class="toc-number">3.</span> <span class="toc-text">3、自定义布局IOSDialog</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4、底部弹出ListDialog"><span class="toc-number">4.</span> <span class="toc-text">4、底部弹出ListDialog</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -1015,18 +1441,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网站</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">导航</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">music</a>
               </li>
              
@@ -1043,11 +1457,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">自定义控件</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网站</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">导航</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">自定义控件</a>
               </li>
             
             <div class="clearfix"></div>
