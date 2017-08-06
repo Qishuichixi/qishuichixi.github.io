@@ -209,279 +209,10 @@
           .build();
 
   OkHttpUtils.initClient(okHttpClient);
-</code></pre><blockquote>
-<p>整合简化请求</p>
-</blockquote>
-<pre><code> public class HttpManger {
-
-//单例设计模式
-private static HttpManger httpManger;
-
-private HttpManger() {
-}
-
-
-public static HttpManger getInstance() {
-
-    if (httpManger == null) {
-        synchronized (HttpManger.class) {
-            if (httpManger == null) {
-                httpManger = new HttpManger();
-            }
-        }
-    }
-    return httpManger;
-}
-
-//回调方法
-private static Result result;
-
-public void setResult(Result result) {
-    this.result = result;
-}
-
-public static  class Result {
-
-    void success(String response) {
-    }
-
-    void fail() {
-    }
-
-    void success(File file) {
-    }
-
-    void success(Bitmap bitmap) {
-    }
-
-    void progress(float progress, long total) {
-    }
-}
-
-
-//okhttp  get
-public void get(String url, Map&lt;String, String&gt; params, Object tag,final Result result) {
-
-    OkHttpUtils
-            .get()
-            .url(url)
-            .params(params)
-            .tag(tag)
-            .build()
-            .execute(new StringCallback() {
-                @Override
-                public void onError(Call call, Exception e, int id) {
-
-                    if (result != null) {
-                        result.fail();
-                    }
-
-                }
-
-                @Override
-                public void onResponse(String response, int id) {
-
-                    if (result != null) {
-                        result.success(response);
-                    }
-                }
-            });
-}
-
-
-//okhttp  post
-public void post(String url, Map&lt;String, String&gt; params, Object tag, final Result result) {
-
-    OkHttpUtils
-            .post()
-            .url(url)
-            .params(params)
-            .tag(tag)
-            .build()
-            .execute(new StringCallback() {
-                @Override
-                public void onError(Call call, Exception e, int id) {
-
-                    if (result != null) {
-                        result.fail();
-                    }
-                }
-
-                @Override
-                public void onResponse(String response, int id) {
-
-                    if (result != null) {
-                        result.success(response);
-                    }
-                }
-            });
-
-}
-
-//okhttp post file
-public void postFile(String url, File file,final Result result) {
-
-    OkHttpUtils
-            .postFile()
-            .url(url)
-            .file(file)
-            .build()
-            .execute(new StringCallback() {
-                @Override
-                public void onError(Call call, Exception e, int id) {
-
-                    if (result != null) {
-                        result.fail();
-                    }
-                }
-
-                @Override
-                public void onResponse(String response, int id) {
-
-                    if (result != null) {
-                        result.success(response);
-                    }
-                }
-            });
-}
-
-//okhttp 表单文件上传
-public void postFile(String url, String key, Map&lt;String, File&gt; files, Map&lt;String, String&gt; params, Map&lt;String, String&gt; headers,final Result result) {
-
-    OkHttpUtils.post()//
-            .files(key, files)
-            .url(url)
-            .params(params)//
-            .headers(headers)//
-            .build()//
-            .execute(new StringCallback() {
-                @Override
-                public void onError(Call call, Exception e, int id) {
-
-                    if (result != null) {
-                        result.fail();
-                    }
-                }
-
-                @Override
-                public void onResponse(String response, int id) {
-
-                    if (result != null) {
-                        result.success(response);
-                    }
-                }
-            });
-
-}
-
-
-//okhttp 下载文件
-public void downLoad(String url, String path, String fileName,final Result result) {
-
-    OkHttpUtils//
-            .get()//
-            .url(url)//
-            .build()//
-            .execute(new FileCallBack(path, fileName)//
-            {
-
-                @Override
-                public void inProgress(float progress, long total, int id) {
-
-                    if (result != null) {
-                        result.progress(progress, total);
-                    }
-                }
-
-                @Override
-                public void onError(Call call, Exception e, int id) {
-
-                    if (result != null) {
-                        result.fail();
-                    }
-                }
-
-                @Override
-                public void onResponse(File response, int id) {
-
-                    if (result != null) {
-                        result.success(response);
-                    }
-
-                }
-
-            });
-}
-
-//okhttp 显示图片
-public void display(String url, final ImageView iv, Object tag) {
-
-    OkHttpUtils
-            .get()//
-            .url(url)//
-            .tag(tag)
-            .build()//
-            .execute(new BitmapCallback() {
-                @Override
-                public void onError(Call call, Exception e, int id) {
-
-                    if (result != null) {
-                        result.fail();
-                    }
-
-                }
-
-                @Override
-                public void onResponse(Bitmap response, int id) {
-
-                    iv.setImageBitmap(response);
-                }
-            });
-
-}
-
-//okhttp 保存bitmap 图片
-public void getBitMap(String url, Object tag,final Result result) {
-
-    OkHttpUtils
-            .get()//
-            .url(url)//
-            .tag(tag)
-            .build()//
-            .execute(new BitmapCallback() {
-                @Override
-                public void onError(Call call, Exception e, int id) {
-
-                    if (result != null) {
-                        result.fail();
-                    }
-
-                }
-
-                @Override
-                public void onResponse(Bitmap response, int id) {
-
-                    if (result != null) {
-                        result.success(response);
-                    }
-
-                }
-            });
-
-}
-
-//okhttp  取消单个请求
-public void cancel(String url) {
-    RequestCall call = OkHttpUtils.get().url(url).build();
-    call.cancel();
-}
-
-//okhttp  取消单个请求  可以取消多个请求
-public void cancel(Object tag) {
-    OkHttpUtils.getInstance().cancelTag(tag);
-}
-}
 </code></pre>
+        
+          <a class="article-more-a" href="/2017/08/06/网络请求框架整合/#more">more >></a>
+        
       
 
       
@@ -1278,6 +1009,14 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">bat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">7月</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
@@ -1287,14 +1026,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">七月</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">7月</a>
               </li>
              
               <li class="article-tag-list-item">
