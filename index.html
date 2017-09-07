@@ -173,7 +173,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/07/recycler01/">recycler系列之单项数据刷新设置</a>
+      <a class="article-title" href="/2017/09/07/recycler01/">Recycler系列之单项数据刷新设置</a>
     </h1>
   
 
@@ -196,109 +196,9 @@
       
         <h2 id="1、效果如下图所示"><a href="#1、效果如下图所示" class="headerlink" title="1、效果如下图所示"></a>1、效果如下图所示</h2><p><img src="http://ot9nmrjuv.bkt.clouddn.com/bank01.gif" alt=""></p>
 <p>其实，做出上面不难。</p>
-<p>a.布局页面</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
-android:layout_width=&quot;match_parent&quot;
-android:layout_height=&quot;match_parent&quot;
-android:orientation=&quot;vertical&quot;&gt;
-
-&lt;android.support.v7.widget.RecyclerView
-    android:id=&quot;@+id/rv&quot;
-    android:layout_width=&quot;match_parent&quot;
-    android:layout_height=&quot;wrap_content&quot;/&gt;
-&lt;/LinearLayout&gt;        
-</code></pre><p>b.添加依赖</p>
-<blockquote>
-<p> compile ‘com.zhy:base-rvadapter:3.0.3’</p>
-</blockquote>
-<p>减少设置adapter代码</p>
-<p>c.重点</p>
-<pre><code>public class MainActivity extends AppCompatActivity {
-
-private CommonAdapter adapter;
-private int temp;
-
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
-
-
-    RecyclerView rv = (RecyclerView) findViewById(R.id.rv);
-
-    rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-    final List&lt;String&gt; list = new ArrayList&lt;&gt;();
-
-    for (int i = 0; i &lt; 20; i++) {
-        list.add(&quot;&quot; + i);
-    }
-    rv.setAdapter(adapter = new CommonAdapter&lt;String&gt;(this, R.layout.item, list) {
-        @Override
-        protected void convert(ViewHolder holder, String o, final int position) {
-
-
-            holder.setText(R.id.item_tv, o);
-            final TextView tv = holder.getView(R.id.item_tv);
-
-            if (temp == position) {
-                tv.setTextColor(Color.RED);
-                tv.setBackgroundColor(Color.DKGRAY);
-            } else {
-                tv.setTextColor(Color.BLACK);
-                tv.setBackgroundColor(Color.WHITE);
-            }
-
-            tv.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    temp = position;
-                    Toast.makeText(mContext, &quot;点击位置:&quot; + temp, Toast.LENGTH_SHORT).show();
-                    adapter.notifyDataSetChanged();
-
-                }
-            });
-
-        }
-    });
-  }
-}
-</code></pre><p>此段代码关键是在于 </p>
-<blockquote>
-<p>adapter.notifyDataSetChanged();</p>
-</blockquote>
-<p>其次要理解在刷新之后已经把所有item都给遍历了一次，故而只需要设置</p>
-<pre><code>if (temp == position) {
-               tv.setTextColor(Color.RED);
-               tv.setBackgroundColor(Color.DKGRAY);
-           } else {
-               tv.setTextColor(Color.BLACK);
-               tv.setBackgroundColor(Color.WHITE);
-           }
-</code></pre><p>d.item布局</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-android:layout_width=&quot;match_parent&quot;
-android:layout_height=&quot;wrap_content&quot;
-android:layout_marginTop=&quot;2dp&quot;
-android:background=&quot;#fff&quot;
-android:orientation=&quot;vertical&quot;&gt;
-
-&lt;TextView
-    android:id=&quot;@+id/item_tv&quot;
-    android:layout_width=&quot;match_parent&quot;
-    android:layout_height=&quot;wrap_content&quot;
-    android:background=&quot;#fcfcfc&quot;
-    android:padding=&quot;10dp&quot;
-    android:text=&quot;Hello&quot;
-    android:textColor=&quot;#000&quot; /&gt;
-
-&lt;/LinearLayout&gt;
-</code></pre><p>项目下载地址</p>
-<p><a href="https://github.com/Qishuichixi/Recycler01" target="_blank" rel="external">https://github.com/Qishuichixi/Recycler01</a></p>
-
+        
+          <a class="article-more-a" href="/2017/09/07/recycler01/#more">more >></a>
+        
       
 
       
@@ -311,11 +211,11 @@ android:orientation=&quot;vertical&quot;&gt;
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">九月</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">九月</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -633,11 +533,11 @@ public static  void show(Context context,String msg){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">提示框</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">提示框</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
         		</li>
       		
 		</ul>
@@ -1112,7 +1012,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">九月</a>
+                <a href="javascript:void(0)" class="js-tag color4">提示框</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1120,11 +1020,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">recycler</a>
+                <a href="javascript:void(0)" class="js-tag color3">九月</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">提示框</a>
+                <a href="javascript:void(0)" class="js-tag color4">recycler</a>
               </li>
              
               <li class="article-tag-list-item">
