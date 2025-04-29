@@ -1,0 +1,1 @@
+import{_ as p,c as t,o as d,a4 as r}from"./chunks/framework.rhuvStYU.js";const c=JSON.parse('{"title":"行测大纲","description":"","frontmatter":{},"headers":[],"relativePath":"01行测/index.md","filePath":"01行测/index.md"}'),o={name:"01行测/index.md"},B=r("",278),_=[B];function a(A,n,D,s,C,e){return d(),t("div",null,_)}const h=p(o,[["render",a]]);export{c as __pageData,h as default};

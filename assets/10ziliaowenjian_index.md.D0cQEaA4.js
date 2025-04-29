@@ -1,0 +1,26 @@
+import{_ as a,c as n,o as s,a4 as e}from"./chunks/framework.rhuvStYU.js";const h=JSON.parse('{"title":"文件资料","description":"","frontmatter":{},"headers":[],"relativePath":"10ziliaowenjian/index.md","filePath":"10ziliaowenjian/index.md"}'),p={name:"10ziliaowenjian/index.md"},l=e(`<h1 id="文件资料" tabindex="-1">文件资料 <a class="header-anchor" href="#文件资料" aria-label="Permalink to &quot;文件资料&quot;">​</a></h1><h2 id="粉笔2022年公考资料" tabindex="-1">粉笔2022年公考资料 <a class="header-anchor" href="#粉笔2022年公考资料" aria-label="Permalink to &quot;粉笔2022年公考资料&quot;">​</a></h2><ul><li>坚果云\\文档\\06 网课课件\\2022年粉笔文档资料</li><li><a href="http://webdav.zhouwenxi.top:30002/%E6%96%87%E6%A1%A3/01%202022%E5%B9%B4%E7%B2%89%E7%AC%94%E5%85%AC%E8%80%83%E4%B9%A6%E7%B1%8D/" target="_blank" rel="noreferrer">WebDav在线访问</a></li><li>GTK电脑访问、文件列表</li></ul><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>D:\\WebDav\\文档\\01 2022年粉笔公考书籍\\01 笔试系统讲义（2023国考版）.pdf</span></span>
+<span class="line"><span>D:\\WebDav\\文档\\01 2022年粉笔公考书籍\\02 强化练习题（国考版） 上册.pdf</span></span>
+<span class="line"><span>D:\\WebDav\\文档\\01 2022年粉笔公考书籍\\03 强化练习题（国考版） 下册.pdf</span></span>
+<span class="line"><span>D:\\WebDav\\文档\\01 2022年粉笔公考书籍\\04 行测极致真题（国考卷） 题本.pdf</span></span>
+<span class="line"><span>D:\\WebDav\\文档\\01 2022年粉笔公考书籍\\05 行测极致真题（国考卷） 解析.pdf</span></span>
+<span class="line"><span>D:\\WebDav\\文档\\01 2022年粉笔公考书籍\\06 申论极致真题（国考卷） 题本.pdf</span></span>
+<span class="line"><span>D:\\WebDav\\文档\\01 2022年粉笔公考书籍\\07 申论极致真题（国考卷） 解析.pdf</span></span>
+<span class="line"><span>D:\\WebDav\\文档\\01 2022年粉笔公考书籍\\08 国考专项题集（判断与推理）.pdf</span></span>
+<span class="line"><span>D:\\WebDav\\文档\\01 2022年粉笔公考书籍\\09 国考专项题集（申论）.pdf</span></span>
+<span class="line"><span>D:\\WebDav\\文档\\01 2022年粉笔公考书籍\\10 国考专项题集（语言理解与表达）.pdf</span></span>
+<span class="line"><span>D:\\WebDav\\文档\\01 2022年粉笔公考书籍\\11 国考专项题集（数量关系与资料分析）.pdf</span></span>
+<span class="line"><span>D:\\WebDav\\文档\\01 2022年粉笔公考书籍\\12 行测极致模考（国考卷） 题本.pdf</span></span>
+<span class="line"><span>D:\\WebDav\\文档\\01 2022年粉笔公考书籍\\13 行测极致模考（国考卷） 解析.pdf</span></span>
+<span class="line"><span>D:\\WebDav\\文档\\01 2022年粉笔公考书籍\\14 申论极致模考（国考卷） 题本.pdf</span></span>
+<span class="line"><span>D:\\WebDav\\文档\\01 2022年粉笔公考书籍\\15 申论极致模考（国考卷） 解析.pdf</span></span>
+<span class="line"><span>D:\\WebDav\\文档\\01 2022年粉笔公考书籍\\16 行测的思维 （常识）.pdf</span></span>
+<span class="line"><span>D:\\WebDav\\文档\\01 2022年粉笔公考书籍\\17 行测的思维 （言语理解与表达）.pdf</span></span>
+<span class="line"><span>D:\\WebDav\\文档\\01 2022年粉笔公考书籍\\18 行测的思维 （判断推理）.pdf</span></span>
+<span class="line"><span>D:\\WebDav\\文档\\01 2022年粉笔公考书籍\\19 行测的思维 （数量关系与资料分析）.pdf</span></span>
+<span class="line"><span>D:\\WebDav\\文档\\01 2022年粉笔公考书籍\\20 申论的规矩 （上册）.pdf</span></span>
+<span class="line"><span>D:\\WebDav\\文档\\01 2022年粉笔公考书籍\\21 申论的规矩 （下册）.pdf</span></span>
+<span class="line"><span>D:\\WebDav\\文档\\01 2022年粉笔公考书籍\\22 行测考点一本通.pdf</span></span>
+<span class="line"><span>D:\\WebDav\\文档\\01 2022年粉笔公考书籍\\23 申论技巧与热点解读.pdf</span></span>
+<span class="line"><span>D:\\WebDav\\文档\\01 2022年粉笔公考书籍\\24 类比推理必对应关系.pdf</span></span>
+<span class="line"><span>D:\\WebDav\\文档\\01 2022年粉笔公考书籍\\25 易混高频成语辨析.pdf</span></span>
+<span class="line"><span>D:\\WebDav\\文档\\01 2022年粉笔公考书籍\\26 数字推理专项.pdf</span></span></code></pre></div><h2 id="白宁公安冲刺-110-核心考点" tabindex="-1">白宁公安冲刺 110 核心考点 <a class="header-anchor" href="#白宁公安冲刺-110-核心考点" aria-label="Permalink to &quot;白宁公安冲刺 110 核心考点&quot;">​</a></h2><ul><li><p><a href="http://webdav.zhouwenxi.top:30002/%E6%96%87%E6%A1%A3/02%202024%E5%85%AC%E5%AE%89110%E8%80%83%E7%82%B9/24%E5%B1%8A110%E8%80%83%E7%82%B9.pdf" target="_blank" rel="noreferrer">D:\\WebDav\\文档\\02 2024公安110考点\\24届110考点.pdf</a></p></li><li><p>坚果云\\文档\\06 网课课件\\2024年公安\\24届110考点.pdf</p></li><li><p><a href="http://webdav.zhouwenxi.top:30002/%E6%96%87%E6%A1%A3/02%202024%E5%85%AC%E5%AE%89110%E8%80%83%E7%82%B9/24%E5%A4%9A%E7%9C%81%E8%81%94%E8%80%83%E8%80%83%E5%89%8D%E7%83%AD%E7%82%B9%20.pdf" target="_blank" rel="noreferrer">24多省联考考前热点%20.pdf</a></p></li><li><p>坚果云\\文档\\06 网课课件\\2024年公安\\24多省联考考前热点 .pdf</p></li></ul><h2 id="花生13资料分析公式总结" tabindex="-1">花生13资料分析公式总结 <a class="header-anchor" href="#花生13资料分析公式总结" aria-label="Permalink to &quot;花生13资料分析公式总结&quot;">​</a></h2><ul><li><p><a href="http://webdav.zhouwenxi.top:30002/%E6%96%87%E6%A1%A3/03%20%E8%8A%B1%E7%94%9F13%E8%B5%84%E6%96%99%E5%88%86%E6%9E%90/%E8%B5%84%E6%96%99%E5%88%86%E6%9E%90%E5%85%AC%E5%BC%8F%E6%80%BB%E7%BB%93.pdf" target="_blank" rel="noreferrer">资料分析公式总结</a></p></li><li><p>坚果云\\文档\\06 网课课件\\坚果云\\花生13资料分析</p></li></ul><h2 id="时评精析" tabindex="-1">时评精析 <a class="header-anchor" href="#时评精析" aria-label="Permalink to &quot;时评精析&quot;">​</a></h2><ul><li><a href="http://webdav.zhouwenxi.top:30002/%E6%96%87%E6%A1%A3/04%20%E6%97%B6%E8%AF%84%E7%B2%BE%E6%9E%90/" target="_blank" rel="noreferrer">D:\\WebDav\\文档\\04 时评精析</a></li><li><a href="https://mp.weixin.qq.com/s/zOq_mI03BtNhFzX3q93Mnw" target="_blank" rel="noreferrer">公众号地址</a></li></ul>`,10),i=[l];function t(r,d,o,c,D,E){return s(),n("div",null,i)}const b=a(p,[["render",t]]);export{h as __pageData,b as default};
