@@ -1,1 +1,0 @@
-import{_ as a,c as p,o as e,a4 as t}from"./chunks/framework.rhuvStYU.js";const m=JSON.parse('{"title":"大作文","description":"","frontmatter":{},"headers":[],"relativePath":"02申论/追寻长期价值.md","filePath":"02申论/追寻长期价值.md"}'),r={name:"02申论/追寻长期价值.md"},o=t("",35),n=[o];function s(i,h,_,l,c,d){return e(),p("div",null,n)}const f=a(r,[["render",s]]);export{m as __pageData,f as default};
